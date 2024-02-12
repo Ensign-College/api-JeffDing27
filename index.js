@@ -23,11 +23,16 @@ app.listen(port, ()=>{
     console.log(`API is Listening on port: ${port}`);//emplate literal
 }); //listen for web requests from the frontend and docker
 
-app.post('/boxes', async (req,res)=>{ //async means we will await promises
-    const newBox = req.body;//now we have a box
-    newBox.id= parseInt (await redisClient.json.arrLen('boxes', '$'))+1;//the user shouldn't choose the ID
-    await redisClient.json.arrAppend('boxes','$',(newBox));//saves the JSON in redis
-    res.json(newBox);//respond with the new box
+app.post('/inventory', async (req,res)=>{ //async means we will await promises
+    const Inventory = req.body;//now we have a box
+    const newInventory ={
+        "itemID": "808",
+        "productID": "PC003",
+        "status": "In Stock"
+    }
+    Inventory.id= parseInt (await redisClient.json.arrLen('inventory', '$'))+1;//the user shouldn't choose the ID
+    await redisClient.json.arrAppend('inventory','$',newInventory);//saves the JSON in redis
+    res.json(newInventory);//respond with the new box
 
 });
 
