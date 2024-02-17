@@ -3,6 +3,7 @@ const Redis = require('redis'); //import the Redis Library
 const bodyParser= require('body-parser');
 const cors = require('cors');
 
+
 const options = {
     origin:'http://localhost:3000'//allow our frontend to call this backend
 }
@@ -25,11 +26,8 @@ app.listen(port, ()=>{
 
 app.post('/inventory', async (req,res)=>{ //async means we will await promises
 
-    const newInventory ={
-        "itemID": "808",
-        "productID": "PC003",
-        "status": "In Stock"
-    }
+    const newInventory = req.body;
+      
 
     const productKey= `product:${newInventory.productID}-${Date.now()}`;
     try{
@@ -45,10 +43,25 @@ app.post('/inventory', async (req,res)=>{ //async means we will await promises
 //2nd a function to return boxes
 //req= the request from the browser
 //res= the response from the server
-app.get('/boxes', async (req, res)=>{
-    let boxes = await redisClient.json.get('boxes', {path:'$'});//get the boxes
-    //send the boxes to the browser
-    res.json(boxes[0]);//send boxes as a string
+app.get('/inventory/:productID', async (req, res)=>{
+
+    try{
+    let inventory = await redisClient.json.get(`product:${req.params.productID}`);
+    
+    if (inventory===null){
+        return res.status(404).json({error: 'Inventory not found'});
+    }
+    res.json(inventory);
+
+}catch (error){
+    console.error('Error retrieving inventory:', error);
+    res.status(500).json({error: 'Internal Server Error'});
+}
+
+    // app.get('/boxes', async (req, res)=>{
+    //     let boxes = await redisClient.json.get('boxes', {path:'$'});//get the boxes
+    //     //send the boxes to the browser
+    //     res.json(boxes[0]);//send boxes as a string
 
 }) 
 
