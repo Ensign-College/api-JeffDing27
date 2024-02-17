@@ -37,6 +37,13 @@ app.post('/inventory', async (req,res)=>{ //async means we will await promises
     }
     res.json(newInventory);//respond with the new box
 
+    // app.post('/boxes', async (req, res)=>{// async means we will await promises
+    //     const newBox = req.body;
+    //     newBox.id = parseInt(await redisClient.json.arrLen('boxes','$'))+1;//the user shouldn't be allowed to choose the ID
+    //     await redisClient.json.arrAppend('boxes', '$',newBox); //saves the JSON in redis
+    //     res.json(newBox);//respond with a new box
+    // });
+
 });
 
 //1st parameter url
