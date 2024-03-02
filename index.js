@@ -49,9 +49,9 @@ if (responseStatus ===200){
         return;
     }
     }else{
-        res.status (responseStatus);
-        res.send(
-            `Missing one of the following fields: ${exactMatchOrderFields()} ${partiallyMatchOrderFields()}`
+    res.status (responseStatus);
+    res.send(
+     `Missing one of the following fields: ${exactMatchOrderFields()} ${partiallyMatchOrderFields()}`
         );
     }
     res.status(responseStatus).send();
