@@ -1,27 +1,27 @@
 Resources:
-  MyLambdaFunction:
-    Type: 'AWS::Serverless::Function'
-    Properties:
-      Handler: index.handler
-      Runtime: nodejs12.x
-      CodeUri: ./lambda
-      MemorySize: 128
-      Timeout: 30
-      Environment:
-        Variables:
-          REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpointAddress
-      Events:
-        MyApi:
-          Type: Api
-          Properties:
-            Path: /myendpoint
-            Method: get
+  # MyLambdaFunction:
+  #   Type: 'AWS::Serverless::Function'
+  #   Properties:
+  #     Handler: index.handler
+  #     Runtime: nodejs12.x
+  #     CodeUri: .
+  #     MemorySize: 128
+  #     Timeout: 30
+  #     Environment:
+  #       Variables:
+  #         REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpointAddress
+  #     Events:
+  #       MyApi:
+  #         Type: Api
+  #         Properties:
+  #           Path: /myendpoint
+  #           Method: get
 
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Security group for Lambda function
-      VpcId: !Ref MyVPC
+      VpcId: vpc-066e6a637e37f2752
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 6379
