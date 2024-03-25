@@ -9,7 +9,7 @@ Resources:
       Timeout: 30
       Environment:
         Variables:
-          REDIS_HOST: !GetAtt MyElasticacheRedis.ConfigurationEndpoint.Address
+          REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpointAddress
       Events:
         MyApi:
           Type: Api
