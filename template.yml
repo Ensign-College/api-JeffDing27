@@ -1,21 +1,21 @@
 Resources:
-  MyLambdaFunction:
-    Type: 'AWS::Serverless::Function'
-    Properties:
-      Handler: index.handler
-      Runtime: nodejs12.x
-      CodeUri: .
-      MemorySize: 128
-      Timeout: 30
-      Environment:
-        Variables:
-          REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpointAddress
-      Events:
-        MyApi:
-          Type: Api
-          Properties:
-            Path: /myendpoint
-            Method: get
+  # MyLambdaFunction:
+  #   Type: 'AWS::Serverless::Function'
+  #   Properties:
+  #     Handler: index.handler
+  #     Runtime: nodejs12.x
+  #     CodeUri: .
+  #     MemorySize: 128
+  #     Timeout: 30
+  #     Environment:
+  #       Variables:
+  #         REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpointAddress
+  #     Events:
+  #       MyApi:
+  #         Type: Api
+  #         Properties:
+  #           Path: /myendpoint
+  #           Method: get
 
   MyElasticacheSubnetGroup:
     Type: AWS::ElastiCache::SubnetGroup
