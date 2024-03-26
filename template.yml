@@ -16,13 +16,15 @@ Resources:
           Properties:
             Path: /myendpoint
             Method: get
+
   MyElasticacheSubnetGroup:
     Type: AWS::ElastiCache::SubnetGroup
     Properties:
       Description: Subnet group for ElastiCache Redis
       SubnetIds:
         - subnet-02c217f126c0ce1d5
-        
+      CodeUri: .
+
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -38,3 +40,4 @@ Resources:
           FromPort: 6379
           ToPort: 6379
           DestinationSecurityGroupId: !GetAtt MyElasticacheRedis.SecurityGroupId
+      CodeUri: .
