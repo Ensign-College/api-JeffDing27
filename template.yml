@@ -1,5 +1,4 @@
-Resources:
- Resources:
+  Resources:
 #  MyVPC:
 #    Type: AWS::EC2::VPC
 #    Properties:
