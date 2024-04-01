@@ -61,3 +61,71 @@ Resources:
           Properties:
             Path: /myendpoint
             Method: get
+
+GetOrderItemById:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: getOrderItemById
+      Runtime: nodejs20.x
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 30
+      Environment:
+        Variables:
+          REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpoint.Address
+      Events:
+        MyApi:
+          Type: Api
+          Properties:
+            Path: /getOrderItemById
+
+getInventoryByProductId:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: getInventoryByProductId
+      Runtime: nodejs20.x
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 30
+      Environment:
+        Variables:
+          REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpoint.Address
+      Events:
+        MyApi:
+          Type: Api
+          Properties:
+            Path: /getInventoryByProductId
+
+addOrderItem:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: addOrderItem
+      Runtime: nodejs20.x
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 30
+      Environment:
+        Variables:
+          REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpoint.Address
+      Events:
+        MyApi:
+          Type: Api
+          Properties:
+            Path: /addOrderItem
+
+addInventory:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: addInventory
+      Runtime: nodejs20.x
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 30
+      Environment:
+        Variables:
+          REDIS_HOST: !GetAtt MyElasticacheRedis.RedisEndpoint.Address
+      Events:
+        MyApi:
+          Type: Api
+          Properties:
+            Path: /addInventory
