@@ -42,7 +42,9 @@ Resources:
           ToPort: 6379
           CidrIp: 0.0.0.0/0  # This allows access from any IP, modify as needed
 
-          MyLambdaFunction:
+          
+          
+  MyLambdaFunction:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: index.handler
