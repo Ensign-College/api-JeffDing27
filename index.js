@@ -10,6 +10,14 @@ const redisClient = Redis.createClient({
     url: `redis://localhost:6379`
 });
 
+exports.test = async (event, context) => {
+    event.redisClient = redisClient;
+    return{
+        statusCode: 200,
+        body: JSON.stringify({message: 'WORKS!', event, context})
+    }
+    };
+
 exports.createOrder = async (event, context) => {
     try {
         const order = JSON.parse(event.body);
