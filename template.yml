@@ -62,7 +62,7 @@ Resources:
             Path: /myendpoint
             Method: get
 
-GetOrderItemById:
+  GetOrderItemById:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: getOrderItemById
@@ -79,7 +79,7 @@ GetOrderItemById:
           Properties:
             Path: /getOrderItemById
 
-getInventoryByProductId:
+  getInventoryByProductId:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: getInventoryByProductId
@@ -96,7 +96,7 @@ getInventoryByProductId:
           Properties:
             Path: /getInventoryByProductId
 
-addOrderItem:
+  addOrderItem:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: addOrderItem
@@ -113,7 +113,7 @@ addOrderItem:
           Properties:
             Path: /addOrderItem
 
-addInventory:
+  addInventory:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: addInventory
