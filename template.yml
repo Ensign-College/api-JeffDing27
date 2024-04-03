@@ -152,8 +152,8 @@ Resources:
           Properties:
             Path: /addInventory
             Method: post
-            
-getOrderById:
+
+  getOrderById:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: index.getOrderById
