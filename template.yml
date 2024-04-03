@@ -62,18 +62,7 @@ Resources:
             Path: /myendpoint
             Method: get
 
- GetOrderFunction:
-    Type: 'AWS::Serverless::Function'
-    Properties:
-      Handler: index.getOrderItemById
-      Runtime: nodejs20.x
-      CodeUri: .
-      Events:
-        GetOrder:
-          Type: Api
-          Properties:
-            Path: /orders/{id}
-            Method: get
+ 
 
 
   # GetOrderItemById:
