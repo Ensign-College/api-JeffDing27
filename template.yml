@@ -63,7 +63,7 @@ Resources:
             Method: get
 
  
- CreateOrder:
+  CreateOrder:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: index.createOrder
