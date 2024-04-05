@@ -51,7 +51,7 @@ exports.getOrderById = async (event, context) => {
         return { statusCode: 200, body: JSON.stringify(order) };
     } catch (error) {
         console.error(error);
-        return { statusCode: 500, body: "Internal Server Error" };
+        return { statusCode: 500, body: "It is rainning !" };
     }
 };
 
