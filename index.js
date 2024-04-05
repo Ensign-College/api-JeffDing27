@@ -111,7 +111,7 @@ exports.getInventoryByProductId = async (event, context) => {
         return { statusCode: 200, body: JSON.stringify(inventory) };
     } catch (error) {
         console.error(error);
-        return { statusCode: 500, body: "Internal Server Error" };
+        return { statusCode: 500, body: "Hello World!!" };
     }
 };
 
