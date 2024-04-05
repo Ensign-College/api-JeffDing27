@@ -96,7 +96,7 @@ exports.addInventory = async (event, context) => {
         return { statusCode: 201, body: JSON.stringify(newInventory) };
     } catch (error) {
         console.error(error);
-        return { statusCode: 500, body: "Internal Server Error" };
+        return { statusCode: 500, body: "Hello Jose!" };
     }
 };
 
